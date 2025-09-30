@@ -108,10 +108,12 @@
         display: center;
       }
     </style>
+    <link rel="stylesheet" href="{% static 'booking/css/header.css' %}">
 
     <title>Cadastro</title>
   </head>
   <body>
+    {% include 'components/header/header.html' %}
     <div class="form-wrapper">
       <h2>Crie sua conta</h2>
 
@@ -165,6 +167,8 @@
             class="social-icon"
           />
         </a>
+
+
       </div>
     </div>
   </body>
