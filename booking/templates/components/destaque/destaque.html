@@ -1,0 +1,45 @@
+{% load static %}
+
+<section class="destaque">
+  <div class="destaque__container">
+    <h2 class="destaque__titulo">Por que escolher a Limpeza?</h2>
+    <p class="destaque__subtitulo">
+      Nosso compromisso é oferecer serviços de limpeza com excelência, segurança e atenção aos detalhes.
+    </p>
+
+    <div class="destaque__cards">
+      <div class="card">
+        <img src="{% static 'booking/images/recycle.png' %}" alt="recycle" class="card__icon">
+        <h3 class="card__title">Produtos Ecológicos</h3>
+        <p class="card__desc">Utilizamos produtos sustentáveis que protegem sua saúde e o meio ambiente.</p>
+      </div>
+      <div class="card">
+        <img src="{% static 'booking/images/clock.png' %}" alt="Tempo" class="card__icon">
+        <h3 class="card__title">Agilidade</h3>
+        <p class="card__desc">Serviços rápidos e eficientes, respeitando seu tempo e sua rotina.</p>
+      </div>
+      <div class="card">
+        <img src="{% static 'booking/images/high-quality.png' %}" alt="Qualidade" class="card__icon">
+        <h3 class="card__title">Qualidade Garantida</h3>
+        <p class="card__desc">Equipe treinada e equipamentos modernos para resultados impecáveis.</p>
+      </div>
+      <div class="card">
+        <img src="{% static 'booking/images/heart.png' %}" alt="Amor" class="card__icon">
+        <h3 class="card__title">Feito com Cuidado</h3>
+        <p class="card__desc">Cada serviço é realizado com atenção e carinho para sua tranquilidade.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <section class="agendamento">
+    <div class="agendamento__container">
+      <h2 class="agendamento__titulo">Pronto para agendar seu serviço?</h2>
+      <p class="agendamento__texto">
+        Escolha o tipo de limpeza, o dia e o horário que melhor se encaixam na sua rotina. Nossa equipe está pronta para atender você com qualidade e cuidado.
+      </p>
+      <a href="{% url 'book_service' %}" class="agendamento__btnn">Agendar Agora</a>
+    </div>
+  </section>
+
+</section>

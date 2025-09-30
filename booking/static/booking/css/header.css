@@ -1,0 +1,153 @@
+
+.navbar {
+  display: flex;
+  background: transparent;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 30px;
+  padding: 0px 10px;
+  margin: 0 auto;
+  width: 95%;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+.navbar.scrolled {
+  background-color: #cfd2e2; /* ou a cor que quiser */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  width: 12rem;
+  color: #2258c3;
+}
+.logo:hover {
+  color: #fb0;
+  transition: color 0.4s;
+  box-shadow: #fb0 0px 2px 0px;
+}
+
+.menu {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  margin: 0 15px;
+}
+
+.item a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.item a:hover {
+  color: #2258c3;
+  transition: color 0.4s;
+  box-shadow: #fb0 0px 2px 0px;
+}
+
+
+
+.agendamento__btn {
+  display: inline-block;
+  background-color: #14307d;
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.agendamento__btn:hover {
+  background-color: #fb0;
+  color: #14307d;
+}
+
+
+
+
+
+.logout-link {
+  display: block;
+  color: #2258c3;
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: 10px;
+  transition: color 0.3s ease;
+}
+
+.logout-link:hover {
+  color: #fb0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.profile-menu {
+  position: relative;
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.profile-icon {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.profile-dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 50px;
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  padding: 10px 0;
+  min-width: 150px;
+  z-index: 1000;
+}
+
+.profile-dropdown a {
+  display: block;
+  padding: 10px 20px;
+  color: #14307d;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.profile-dropdown a:hover {
+  background-color: #f0f0f0;
+}
+
+.action-group {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* espaço entre botão e ícone */
+}

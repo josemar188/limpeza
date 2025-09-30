@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Entrar</title>
+    <link rel="stylesheet" href="{% static 'booking/css/login.css' %}">
+</head>
+<body>
+    <img src="{% static 'booking/images/img2.2.jpeg' %}" alt="produto-limpeza">
+
+    <div class="login-container">
+        <h2>Bem-vindo de volta!</h2>
+        <p>Para agendar um serviço, por favor faça login abaixo.</p>
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Entrar</button>
+        </form>
+
+        <hr>
+
+        <p>Não tem uma conta?</p>
+        <a href="{% url 'signup' %}" class="btn-cadastro">Cadastre-se agora</a>
+    </div>
+</body>
+</html>

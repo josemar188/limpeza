@@ -1,0 +1,10 @@
+/* Global/reset */
+html, body {
+  font-family: Arial, Helvetica, sans-serif;  
+}
+
+/* Page layout: body as column flex so footer stays bottom */
+body, main {
+  background: linear-gradient(180deg, #78b7db, #14307d);
+  color: #fff;
+}

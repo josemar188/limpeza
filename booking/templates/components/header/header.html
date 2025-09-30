@@ -1,0 +1,72 @@
+{% load static %}
+
+<header class="site-header">
+  <nav class="navbar">
+    <h2 class="logo">Espaço Limpo</h2>
+
+    <ul class="menu">
+      <li class="item"><a href="{% url 'home' %}">Home</a></li>
+      <li class="item"><a href="{% url 'servicos' %}">Serviços</a></li>
+      <li class="item"><a href="#">Contact Us</a></li>
+      <li class="item"><a href="#">Blog</a></li>
+    </ul>
+
+    <div class="action-group">
+      <a href="{% url 'book_service' %}" class="agendamento__btn"
+        >Agendar Agora</a
+      >
+
+      <div class="profile-menu">
+        <img
+          src="{% static 'booking/images/user.png' %}"
+          alt="Perfil"
+          class="profile-icon"
+          onclick="toggleProfileMenu()"
+        />
+        <div class="profile-dropdown" id="profileDropdown">
+          {% if request.user.is_authenticated %}
+          <a href="{% url 'profile' %}">Perfil</a>
+          <a href="#" onclick="document.getElementById('logoutForm').submit();" class="logout-link">Sair</a>
+          <form id="logoutForm" method="post" action="{% url 'account_logout' %}" style="display: none;">
+            {% csrf_token %}
+          </form>
+
+
+          {% else %}
+          <a href="{% url 'login' %}">Entrar</a>
+          <a href="{% url 'signup' %}">Criar Conta</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  window.addEventListener("scroll", function () {
+    const navbar = document.querySelector(".navbar");
+    if (window.scrollY > 50) {
+      navbar.classList.add("scrolled");
+    } else {
+      navbar.classList.remove("scrolled");
+    }
+  });
+</script>
+
+<script>
+  function toggleProfileMenu() {
+    const dropdown = document.getElementById("profileDropdown");
+    dropdown.style.display =
+      dropdown.style.display === "block" ? "none" : "block";
+  }
+
+  window.addEventListener("click", function (e) {
+    const icon = document.querySelector(".profile-icon");
+    const dropdown = document.getElementById("profileDropdown");
+    if (!icon.contains(e.target) && !dropdown.contains(e.target)) {
+      dropdown.style.display = "none";
+    }
+  });
+
+
+</script>

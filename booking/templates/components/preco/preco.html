@@ -1,0 +1,68 @@
+{% load static %}
+
+<section class="preco-section">
+  <h2 class="preco-title">Preços & Planos</h2>
+  <div class="pricing-cards">
+    <div class="card-preco">
+      <h3>Casa / Apartameto</h3>
+      <p class="price">€35,99/hora</p>
+      <ul>
+        <li>Limpeza de superfícies</li>
+        <li>Varrer e passar pano</li>
+        <li>Banheiro e cozinha</li>
+      </ul>
+      <a href="{% url 'book_service' %}" class="btn-card">Agendar</a>
+    </div>
+
+    <div class="card-preco">
+      <h3>Edifícios / Escritórios</h3>
+      <p class="price">€39,99/hora</p>
+      <ul>
+        <li>Limpeza completa de todos os cômodos</li>
+        <li>Desinfecção de superfícies</li>
+        <li>Limpeza de janelas e armários</li>
+      </ul>
+      <a href="{% url 'book_service' %}" class="btn-card">Agendar</a>
+    </div>
+
+    <div class="card-preco">
+      <h3>Jardim / Área Exterior</h3>
+      <p class="price">€39,99/hora</p>
+      <ul>
+        <li>1 visita semanal</li>
+        <li>Serviço personalizado</li>
+        <li>Descontos em serviços extras</li>
+      </ul>
+      <a href="{% url 'book_service' %}" class="btn-card">Agendar</a>
+    </div>
+
+
+
+
+    <div class="row-break"></div>
+
+
+    <div class="card-preco">
+      <h3>Subscrição Casa</h3>
+      <p class="price">€150,99/mês</p>
+      <ul>
+        <li>1 visita semanal</li>
+        <li>Serviço personalizado</li>
+        <li>Descontos em serviços extras</li>
+      </ul>
+      <a href="{% url 'book_service' %}" class="btn-card">Contactar</a>
+    </div>
+
+    <div class="card-preco">
+      <h3>Subscrição Escritórios</h3>
+      <p class="price">€450,99/mês</p>
+      <ul>
+        <li>1 visita semanal</li>
+        <li>Serviço personalizado</li>
+        <li>Descontos em serviços extras</li>
+      </ul>
+      <a href="{% url 'book_service' %}" class="btn-card">Contactar</a>
+    </div>
+
+  </div>
+</section>

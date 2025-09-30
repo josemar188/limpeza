@@ -1,0 +1,72 @@
+.preco-section {
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+  background: linear-gradient(180deg, #78b7db, #14307d);
+
+}
+
+.preco-title {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 40px;
+}
+
+.pricing-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.card-preco {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 300px;
+  transition: transform 0.3s ease;
+}
+
+.card-preco:hover {
+  transform: translateY(-5px);
+}
+
+.card-preco h3 {
+  color: #2258c3;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 2rem;
+  color: #fb0;
+  margin-bottom: 20px;
+}
+
+.card-preco ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.card-preco ul li {
+  margin: 10px 0;
+  color: #333;
+}
+
+.btn-card {
+  display: inline-block;
+  background-color: #2258c3;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-card:hover {
+  background-color: #fb0;
+  color: #333;
+}

@@ -1,0 +1,115 @@
+.site-footer {
+  background-color: #051f50;
+  color: #ffffff; /* texto escuro para contraste */
+  font-family: "Poppins", sans-serif;
+  padding-top: 40px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-logo {
+  width: 40px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.brand h3 {
+  font-size: 1.3rem;
+  margin: 5px 0;
+}
+
+.brand p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin-bottom: 15px;
+}
+
+.socials {
+  display: flex;
+  gap: 12px;
+}
+
+.socials .icon {
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: #ffffff;
+  transition: color 0.3s;
+}
+
+.socials .icon:hover {
+  color: #fff;
+}
+
+/* Links de colunas */
+.links h4,
+.company h4,
+.contact h4 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.links ul,
+.company ul {
+  list-style: none;
+  padding: 0;
+}
+
+.links ul li,
+.company ul li {
+  margin-bottom: 8px;
+}
+
+.links ul li a,
+.company ul li a {
+  text-decoration: none;
+  font-size: 0.95rem;
+  color: #ffffff;
+  transition: color 0.3s;
+}
+
+.links ul li a:hover,
+.company ul li a:hover {
+  color: #9990ee;
+}
+
+/* Contacto */
+.contact .contact-line {
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+}
+
+.contact .label {
+  font-weight: bold;
+}
+
+.btn-footer {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 18px;
+  background: #111;
+  color: #00d46a;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-footer:hover {
+  background: #fff;
+  color: #111;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  margin-top: 30px;
+  padding-top: 15px;
+  text-align: center;
+  font-size: 0.9rem;
+}

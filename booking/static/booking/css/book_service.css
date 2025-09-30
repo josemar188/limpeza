@@ -1,0 +1,219 @@
+/* Global/reset */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Page layout: body as column flex so footer stays bottom */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: gradient(180deg, #78b7db, #14307d);
+  color: #fff;
+}
+
+/* Main area centers the app box */
+main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  margin-top: 100px;
+  margin-bottom: 60px;
+}
+
+/* Booking app container (semi-transparent over gradient) */
+#bookingApp {
+  background: linear-gradient(90deg, #78b7db, #14307d);
+  border-radius: 20px;
+  width: 100%;
+  max-width: 760px;
+  padding: 20px;
+  box-sizing: border-box;
+  margin-top: 80px; 
+}
+
+/* Form container visual card */
+#formContainer {
+  display: flex;
+  justify-content: center; /* centers the form block inside the card */
+  padding: 20px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  color: #000;
+  margin: 16px 0;
+  box-sizing: border-box;
+}
+
+/* Form itself: vertical flow of rows */
+#formContainer form {
+  width: 100%;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Style each generated <p> from form.as_p as a row (label + control) */
+#formContainer p {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  margin: 0;
+}
+
+/* Fixed-width label column (adjust width as needed) */
+#formContainer p label {
+  width: 160px; /* change this to make label column wider/narrower */
+  flex: 0 0 160px;
+  color: #1c264b;
+  font-weight: 600;
+  text-align: left;
+  font-size: 1.05rem; /* label font size */
+}
+
+/* If some browsers render label inside <strong> or plain text, cover those cases */
+#formContainer p > strong,
+#formContainer p > span {
+  width: 160px;
+  flex: 0 0 160px;
+  color: #1c264b;
+  font-weight: 600;
+  font-size: 1.05rem;
+  text-align: left;
+}
+
+/* Inputs/selects/textareas take remaining space */
+#formContainer p input,
+#formContainer p textarea,
+#formContainer p select {
+  flex: 1 1 auto;
+  width: auto;
+  padding: 10px 12px; /* increases control height */
+  font-size: 1rem; /* control text size */
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  box-sizing: border-box;
+  color: #111;
+}
+
+/* Placeholder styling */
+#formContainer p input::placeholder,
+#formContainer p textarea::placeholder {
+  color: #8a8a8a;
+  font-size: 0.95rem;
+}
+
+/* Button styling */
+#btAngendar {
+  align-self: flex-end; /* puts button at right end of form */
+  padding: 10px 18px;
+  background: #fb0;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #1c264b;
+}
+#btAngendar:hover {
+  background: #e6b800;
+  transform: translateY(-1px);
+}
+
+/* Alternative: a full-width button on small screens */
+#btAngendar.full-width {
+  align-self: stretch;
+}
+
+/* Small tweaks for headings and notices inside bookingApp */
+#bookingApp h2 {
+  margin: 0 0 12px 0;
+  font-size: 1.05rem;
+  color: #2c254d;
+}
+#notice {
+  margin-top: 12px;
+}
+
+/* Responsive behavior: stack label+control vertically on small screens */
+@media (max-width: 520px) {
+  #formContainer p,
+  .form-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  #formContainer p label,
+  #formContainer p > strong,
+  #formContainer p > span {
+    width: auto;
+    flex: none;
+    margin-bottom: 6px;
+  }
+  #btAngendar {
+    align-self: stretch;
+  }
+}
+
+
+
+
+
+
+
+
+
+/* botão padrão */
+.btn {
+  display: inline-block;
+  padding: 10px 18px;
+  font-size: 1.2rem;       /* reduzido */
+  background-color: #14307d;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 400;
+  border-radius: 20px;      /* ligeiramente menor */
+  border: 0;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.15s ease, transform 0.06s ease, box-shadow 0.06s ease;
+  box-shadow: 0 1.5px 5px rgba(20,48,125,0.15); /* ajustado */
+  appearance: none;
+  -moz-appearance: none;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+/* hover / focus */
+.btn:hover {
+  background-color: #1e40af;
+  transform: translateY(-1px);
+}
+.btn:focus {
+  outline: 3px solid rgba(37,99,235,0.24);
+  outline-offset: 2px;
+}
+
+/* active */
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+}
+
+/* tamanhos opcionais */
+.btn.small { padding: 0.25rem 0.6rem; font-size: 0.85rem; border-radius: 6px; }
+.btn.large { padding: 0.7rem 1.2rem; font-size: 1.05rem; border-radius: 10px; }
+
+/* estilo para botão desabilitado (se usar aria-disabled) */
+.btn[aria-disabled="true"], .btn.disabled {
+  background-color: #94a3b8;
+  cursor: not-allowed;
+  box-shadow: none;
+  pointer-events: none;
+}
