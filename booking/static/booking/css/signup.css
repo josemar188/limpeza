@@ -18,3 +18,28 @@
 .social-icon:hover {
   transform: scale(1.05);
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* antes era 15px */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 12px; /* antes era 20px */
+}
+
+label {
+  font-weight: bold;
+  color: #2258c3;
+  margin-bottom: 4px; /* antes era 6px */
+  font-size: 15px; /* opcional: ligeiramente menor */
+}
+
+input {
+  padding: 8px; /* antes era 10px */
+  font-size: 13px; /* opcional: mais compacto */
+}
