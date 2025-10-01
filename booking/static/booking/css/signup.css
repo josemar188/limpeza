@@ -1,12 +1,14 @@
 .social-login {
   width: 32px;
   height: 32px;
+  gap: 20px;;
 }
 
 
 .social-icon {
   width: 32px;
   height: 32px;
+  gap: 20px;
   cursor: pointer;
   transition: transform 0.2s ease;
   border-radius: 50%;
@@ -16,4 +18,3 @@
 .social-icon:hover {
   transform: scale(1.05);
 }
-

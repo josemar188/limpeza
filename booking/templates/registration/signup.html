@@ -115,59 +115,44 @@
   <body>
     {% include 'components/header/header.html' %}
     <div class="form-wrapper">
-      <h2>Crie sua conta</h2>
+        <h2>Crie sua conta</h2>
 
-      <form method="post">
-        {% csrf_token %}
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="{{ form.username.id_for_label }}">Nome Completo:</label>
+                {{ form.username }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.email.id_for_label }}">Email:</label>
+                {{ form.email }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.password1.id_for_label }}">Palavra-passe:</label>
+                {{ form.password1 }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.password2.id_for_label }}">Confirmar palavra-passe:</label>
+                {{ form.password2 }}
+            </div>
+            <button type="submit">Cadastrar</button>
+        </form>
 
-        <div class="form-group">
-          <label for="{{ form.username.id_for_label }}"
-            >Nome de utilizador:</label
-          >
-          {{ form.username }}
-          <span class="helptext"
-            >{{ form.fields.username.help_text|safe }}</span
-          >
+        <h3>Ou</h3>
+
+        <div class="social-login">
+            <h3>Fazer login com:</h3>
+            <a href="{% provider_login_url 'google' %}">
+                <img src="{% static 'booking/images/google.png' %}" alt="Login Google" class="social-icon"/>
+            </a>
+            <a>
+                <img src="{% static 'booking/images/facebook.png' %}" alt="Login Facebook" class="social-icon"/>
+            </a>
+            <a>
+                <img src="{% static 'booking/images/apple.png' %}" alt="Login Apple" class="social-icon"/>
+            </a>
+
         </div>
-
-        <div class="form-group">
-          <label for="{{ form.email.id_for_label }}">Email:</label>
-          {{ form.email }}
-        </div>
-
-        <div class="form-group">
-          <label for="{{ form.password1.id_for_label }}">Palavra-passe:</label>
-          {{ form.password1 }}
-          <span class="helptext"
-            >{{ form.fields.password1.help_text|safe }}</span
-          >
-        </div>
-
-        <div class="form-group">
-          <label for="{{ form.password2.id_for_label }}"
-            >Confirmar palavra-passe:</label
-          >
-          {{ form.password2 }}
-          <span class="helptext"
-            >{{ form.fields.password2.help_text|safe }}</span
-          >
-        </div>
-
-        <button type="submit">Cadastrar</button>
-      </form>
-
-      <h3>Ou</h3>
-
-      <div class="social-login">
-        <h3>Fazer login com:</h3>
-        <a href="{% provider_login_url 'google' %}">
-          <img
-            src="{% static 'booking/images/google.png' %}"
-            alt="Login com Google"
-            class="social-icon"
-          />
-        </a>
-
 
       </div>
     </div>
