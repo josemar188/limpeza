@@ -3,6 +3,7 @@
   color: #ffffff; /* texto escuro para contraste */
   font-family: "Poppins", sans-serif;
   padding-top: 40px;
+  position: relative;
 }
 
 .footer-grid {
@@ -110,6 +111,7 @@
   border-top: 1px solid rgba(255, 255, 255, 0.3);
   margin-top: 30px;
   padding-top: 15px;
+  padding-bottom: 10px;
   text-align: center;
   font-size: 0.9rem;
 }

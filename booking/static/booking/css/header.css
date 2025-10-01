@@ -1,12 +1,5 @@
-
 .navbar {
   display: flex;
-  background: transparent;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  border-radius: 30px;
-  padding: 0px 10px;
-  margin: 0 auto;
-  width: 95%;
   justify-content: space-between;
   align-items: center;
   position: fixed;
@@ -14,12 +7,17 @@
   left: 0;
   right: 0;
   z-index: 9999;
+  width: 100%;
+  margin-top: 0;
+  margin-right: 5px;
+  border-radius: 35px;
+  background-color: transparent;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 .navbar.scrolled {
   background-color: #cfd2e2; /* ou a cor que quiser */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
-
 .logo {
   width: 12rem;
   color: #2258c3;
@@ -29,14 +27,12 @@
   transition: color 0.4s;
   box-shadow: #fb0 0px 2px 0px;
 }
-
 .menu {
   display: flex;
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
-
 .item {
   margin: 0 15px;
 }
@@ -150,4 +146,25 @@
   display: flex;
   align-items: center;
   gap: 15px; /* espaço entre botão e ícone */
+}
+
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  .menu {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .action-group {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 10px;
+  }
 }
