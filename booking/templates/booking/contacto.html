@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{% static 'booking/css/contacto.css' %}" />
+  <link rel="stylesheet" href="{% static 'booking/css/header.css' %}" />
+  <link rel="stylesheet" href="{% static 'booking/css/footer.css' %}" />
+
+
+  <title>Contacte-nos</title>
+</head>
+<body>
+  {% include 'components/header/header.html' %}
+
+  <section class="contact-section">
+    <h2>Contacte-nos</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="contact-btn">Enviar</button>
+    </form>
+  </section>
+
+  {% include 'components/footer/footer.html' %}
+</body>
+</html>

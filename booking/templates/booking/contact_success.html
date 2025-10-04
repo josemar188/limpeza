@@ -1,0 +1,26 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{% static 'booking/css/contacto.css' %}" />
+  <link rel="stylesheet" href="{% static 'booking/css/footer.css' %}" />
+  <link rel="stylesheet" href="{% static 'booking/css/header.css' %}" />
+
+
+  <title>Mensagem enviada</title>
+</head>
+<body>
+  {% include 'components/header/header.html' %}
+
+  <section class="contact-section">
+    <h2>Obrigado pelo seu contacto!</h2>
+    <p>Recebemos a sua mensagem com sucesso. Entraremos em contacto em breve.</p>
+    <a href="{% url 'home' %}" class="contact-btn">Voltar à página inicial</a>
+  </section>
+
+  {% include 'components/footer/footer.html' %}
+</body>
+</html>

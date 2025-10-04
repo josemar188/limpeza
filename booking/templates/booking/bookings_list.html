@@ -2,53 +2,53 @@
 
 <!DOCTYPE html>
 <html lang="pt-pt">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{% static 'booking/css/book_service.css' %}" />
     <link rel="stylesheet" href="{% static 'booking/css/bookings_list.css' %}" />
     <link rel="stylesheet" href="{% static 'booking/css/header.css' %}" />
-    <link rel="stylesheet" href="{% static 'booking/css/signup.css' %}" />
-    <link rel="stylesheet" href="{% static 'booking/css/preco.css' %}" />
-    <link rel="stylesheet" href="{% static 'booking/css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'booking/css/footer.css' %}" />
 
     <title>Histórico dos Serviços</title>
 </head>
+
 <body>
+    {% include 'components/header/header.html' %}
+
     <header>
         <h1>Lista de Agendamentos</h1>
     </header>
 
     <div class="agendar-novo">
-        <a href="{% url 'book_service' %}" class="btn-agendar">Agendar novo serviço</a>
+        <a href="{% url 'book_service' %}" class="btn-agendar">Voltar</a>
     </div>
-    
-    <main>        
-        <table>
-            <thead>
-                <tr>
-                    <th>Serviço</th>
-                    <th>Data</th>
-                    <th>Hora</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for booking in bookings %}
-                <tr>
-                    <td>{{ booking.service }}</td>
-                    <td>{{ booking.date }}</td>
-                    <td>{{ booking.time }}</td>
-                    <td>{{ booking.status }}</td>
-                </tr>
-                {% empty %}
-                <tr>
-                    <td colspan="4">Nenhum agendamento encontrado.</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </main>
-    <footer>
-        <p>&copy; 2025 Limpeza. Todos os direitos reservados.</p>
-    </footer>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Serviço</th>
+                <th>Data</th>
+                <th>Hora</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for booking in bookings %}
+            <tr>
+                <td>{{ booking.service }}</td>
+                <td>{{ booking.date }}</td>
+                <td>{{ booking.time }}</td>
+                <td>{{ booking.status }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">Nenhum agendamento encontrado.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+    {% include 'components/footer/footer.html' %}
+</html>

@@ -2,6 +2,7 @@
 html,
 body {
   height: 100%;
+  width: 100vw;
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -15,4 +16,33 @@ body {
 
 .img-fundo{
   flex-direction: column;
+}
+
+
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+    padding: 0 16px;
+    font-size: 16px;
+  }
+
+  .img-fundo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  .img-fundo img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .img-fundo h1,
+  .img-fundo p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+  }
 }

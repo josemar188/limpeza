@@ -23,6 +23,9 @@ from django.conf.urls.static import static
 from django.views.generic import RedirectView
 from booking.views import signup_view
 from booking.views import login_error_view
+from booking.views import contact_view
+from django.views.generic import TemplateView
+
 
 
 
@@ -49,4 +52,7 @@ urlpatterns = [
     path('signup/', signup_view, name='signup'),
     path('accounts/', include('allauth.urls')),
     path('login-error/', login_error_view),
+
+    path('contact/', contact_view, name='contact'),
+    path('contact/success/', TemplateView.as_view(template_name='booking/contact_success.html'), name='contact_success'),
 ]

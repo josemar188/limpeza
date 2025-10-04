@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}TACE Cleaning{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'booking/css/base.css' %}">
+</head>
+<body>
+    {% include 'components/header/header.html' %}
+    
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    {% include 'components/footer/footer.html' %}
+</body>
+</html>

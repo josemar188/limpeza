@@ -101,3 +101,66 @@
   background-color: #fb0;
   color: #14307d;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+  .destaque {
+    padding: 30px 16px;
+  }
+
+  .destaque__titulo {
+    font-size: 1.8rem;
+  }
+
+  .destaque__subtitulo {
+    font-size: 1rem;
+    margin-bottom: 30px;
+    padding: 0 10px;
+  }
+
+  .destaque__cards {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .card__title {
+    font-size: 1.1rem;
+  }
+
+  .card__desc {
+    font-size: 0.9rem;
+  }
+
+  .agendamento {
+    padding: 30px 16px;
+  }
+
+  .agendamento__titulo {
+    font-size: 1.6rem;
+  }
+
+  .agendamento__texto {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+
+  .agendamento__btnn {
+    padding: 12px 20px;
+    font-size: 1rem;
+  }
+}

@@ -20,7 +20,7 @@ html, body {
 /* Título principal */
 #services h1 {
   font-size: 36px;
-  color: #fff;
+  color: #fb0;
   margin-top: 90px;
   margin-bottom: 20px;
   font-weight: bold;
@@ -81,3 +81,4 @@ html, body {
   background-color: #fb0;
   color: #333;
 }
+

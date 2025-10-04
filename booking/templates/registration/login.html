@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <title>Entrar</title>
     <link rel="stylesheet" href="{% static 'booking/css/login.css' %}">
-    <link rel="stylesheet" href="{% static 'booking/css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'booking/css/footer.css' %}"/>
+    <link rel="stylesheet" href="{% static 'booking/css/header.css' %}"/>
 
 </head>
 <body>
     {% include 'components/header/header.html' %}
-
 
     <div class="login-container">
         <h2>Bem-vindo de volta!</h2>
@@ -26,6 +26,7 @@
 
         <p>Não tem uma conta?</p>
         <a href="{% url 'signup' %}" class="btn-cadastro">Cadastre-se agora</a>
-    </div>
+    </div>    
+    {% include 'components/footer/footer.html' %}
 </body>
 </html>

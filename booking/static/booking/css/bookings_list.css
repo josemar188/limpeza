@@ -1,9 +1,4 @@
 /* Reset básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
 body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -11,6 +6,9 @@ body {
   color: #333;
   line-height: 1.6;
   padding: 20px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box
 }
 
 /* Cabeçalho */

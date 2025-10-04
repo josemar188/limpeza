@@ -16,6 +16,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth import update_session_auth_hash
 from .forms import CustomUserCreationForm
 from django.http import HttpResponse
+from booking.forms import ContactForm
+from django.core.mail import EmailMessage
 
 # Create your views here.
 class BookingViewSet(viewsets.ModelViewSet):
@@ -28,6 +30,12 @@ class BookingViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
 
+
+
+
+
+
+
 @login_required
 def book_service(request):
     if request.method == 'POST':
@@ -35,24 +43,27 @@ def book_service(request):
         if form.is_valid():
             booking = form.save(commit=False)
             booking.user = request.user
-            form.save()
+            booking.save()
 
             confirmation_url = request.build_absolute_uri(
                 reverse('confirmar-reserva', args=[booking.id])
             )
             collaborator_name = booking.collaborator.name if booking.collaborator else 'Não atribuído'
             # Send email to me
-            send_mail(
+            email = EmailMessage(
                 subject=f'Nova reserva: {booking.service.name}',
-                message=(
-                        f'Reserva para o serviço de {booking.service.name} em {booking.date} às {booking.time}.\n'
-                        f'Cliente: {booking.user.username}\n'
-                        f'Colaborador: {collaborator_name}\n'
-                        f'Confirme a reserva: {confirmation_url}'
+                body=(
+                    f"Reserva para o serviço de {booking.service.name} em {booking.date} às {booking.time}.\n"
+                    f"Cliente: {booking.user.username}\n"
+                    f"Email do cliente: {booking.user.email}\n"
+                    f"Colaborador: {collaborator_name}\n"
+                    f"Confirme a reserva: {confirmation_url}"
                 ),
-                from_email='jusng188@gmail.com', ###########################################################################################################3
-                recipient_list=['jusng188@gmail.com'],
-            ) 
+                from_email='jusng188@gmail.com',
+                to=['jusng188@gmail.com'],
+                reply_to=[booking.user.email],
+            )
+            email.send()
 
             if request.headers.get('x-requested-with') == 'XMLHttpRequest':
                 return JsonResponse({'success': True})
@@ -64,8 +75,19 @@ def book_service(request):
         form = BookingForm()
     return render(request, 'booking/book_service.html', {'form': form})
 
+
+
+
+
+
+
+
+
+
+
+
 def booking_history(request):
-    bookings = Booking.objects.all()
+    bookings = Booking.objects.filter(user=request.user).order_by('-date', '-time')
     return render(request, 'booking/bookings_list.html', {'bookings': bookings})
 
 def confirmar_reserva(request, booking_id):
@@ -153,3 +175,26 @@ def signup_view(request):
 
 def login_error_view(request):
     return HttpResponse("Erro de login social. Verifique credenciais e redirecionamento.")
+
+
+
+def contact_view(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            contact = form.save()
+
+            # Envia email de confirmação
+            send_mail(
+                subject='Confirmação de contacto - TACE Cleaning',
+                message=f"Olá {contact.nome},\n\nRecebemos sua mensagem e entraremos em contacto em breve.\n\nMensagem enviada:\n{contact.mensagem}",
+                from_email='noreply@espacolimpo.com',
+                recipient_list=[contact.email],
+                fail_silently=False,
+            )
+
+            return redirect('contact_success')
+    else:
+        form = ContactForm()
+
+    return render(request, 'booking/contacto.html', {'form': form})

@@ -2,8 +2,9 @@
   background-color: #051f50;
   color: #ffffff; /* texto escuro para contraste */
   font-family: "Poppins", sans-serif;
-  padding-top: 40px;
+  padding-top: 30px;
   position: relative;
+  min-width: 100vw;
 }
 
 .footer-grid {
@@ -74,15 +75,13 @@
   transition: color 0.3s;
 }
 
-.links ul li a:hover,
-.company ul li a:hover {
-  color: #9990ee;
-}
+
 
 /* Contacto */
 .contact .contact-line {
   font-size: 0.95rem;
   margin-bottom: 6px;
+  color: #fff;
 }
 
 .contact .label {
@@ -114,4 +113,44 @@
   padding-bottom: 10px;
   text-align: center;
   font-size: 0.9rem;
+}
+
+.footer-bottom p {
+  color: #fff;
+}
+
+
+.links ul li a:hover,
+.company ul li a:hover {
+  color: #9990ee;
+}
+
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .menu {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .login-container {
+    margin: 40px 20px;
+    padding: 20px;
+    max-width: 100%;
+  }
+
+  .agendamento__btn {
+    text-align: center;
+  }
+
+  .action-group {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
 }
