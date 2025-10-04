@@ -41,6 +41,7 @@ class BookingForm(forms.ModelForm):
     
 
 
+
 class CustomUserCreationForm(UserCreationForm):
     email = forms.EmailField(required=True, label='Email')
 
@@ -63,6 +64,7 @@ class CustomUserCreationForm(UserCreationForm):
             ),
             'password2': 'Introduza a mesma palavra-passe novamente para confirmação.',
         }
+
 
 
 class ContactForm(forms.ModelForm):

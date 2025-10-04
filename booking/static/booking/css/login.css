@@ -38,6 +38,8 @@ body {
   background-color: #2258c3;
   color: white;
   border: none;
+  margin: auto;
+  width: 120px;
   padding: 12px;
   border-radius: 30px;
   font-weight: bold;
@@ -87,7 +89,7 @@ body {
   .login-container {
     margin: 40px 20px;
     padding: 20px;
-    max-width: 100%;
+    width: 500px;
   }
 
   .agendamento__btn {

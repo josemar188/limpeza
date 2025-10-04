@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logout</title>
+  <link rel="stylesheet" href="{% static 'booking/css/logout.css' %}">
+  <link rel="stylesheet" href="{% static 'booking/css/header.css' %}">
+  <link rel="stylesheet" href="{% static 'booking/css/footer.css' %}">
+</head>
+<body>
+
+    {% include 'components/header/header.html' %}
+
+    <div class="logout-container">
+        <h1>Você saiu da sua conta</h1>
+        <p>Esperamos vê-lo novamente em breve!</p>
+        <a href="{% url 'home' %}" class="btn">Voltar para o início</a>
+        <a href="{% url 'login' %}" class="btn btn--alt">Fazer login novamente</a>
+    </div>
+
+    {% include 'components/footer/footer.html' %}
+</body>
+</html>

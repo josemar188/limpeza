@@ -25,6 +25,7 @@ from booking.views import signup_view
 from booking.views import login_error_view
 from booking.views import contact_view
 from django.views.generic import TemplateView
+from django.contrib.auth import views as auth_views
 
 
 
@@ -46,6 +47,7 @@ urlpatterns = [
     path('accounts/profile/edit/', views.edit_profile, name='edit_profile'),
     path('accounts/profile/change_password/', views.change_password, name='change_password'),
     path('accounts/profile/delete/', views.delete_account, name='delete_account'),
+    path('logout/', auth_views.LogoutView.as_view(template_name='account/logout.html'), name='logout'),
     
     path('servicos/', views.service_list, name='servicos'),
     path('', views.home, name='home' ),

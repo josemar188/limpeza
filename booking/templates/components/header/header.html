@@ -5,23 +5,24 @@
     <div class="navbar-left">
       <h2 class="logo">TACE-Cleaning</h2>
     </div>
-
-    <div class="navbar-right">
-      <ul class="menu" id="mobileMenu">
+    
+    <ul class="menu" id="mobileMenu">
+      <div class="navbar-center">
         <li class="item"><a href="{% url 'home' %}">Home</a></li>
         <li class="item"><a href="{% url 'servicos' %}">Serviços</a></li>
         <li class="item"><a href="{% url 'book_service' %}">Agendar Serviços</a></li>
-     
-        <li><a href="{% url 'contact' %}" class="agendamento__btn">Contacte-nos</a></li>
+      </div>
 
+      <div class="navbar-right">
+        <li><a href="{% url 'contact' %}" class="agendamento__btn">Contacte-nos</a></li>
         <li>
           <div class="profile-menu">
             <img src="{% static 'booking/images/user.png' %}" alt="Perfil" class="profile-icon" onclick="toggleProfileMenu()"/>
             <div class="profile-dropdown" id="profileDropdown">
               {% if request.user.is_authenticated %}
                 <a href="{% url 'profile' %}">Perfil</a>
-                <a href="#" onclick="document.getElementById('logoutForm').submit();" class="logout-link">Sair</a>
-                <form id="logoutForm" method="post" action="{% url 'account_logout' %}" style="display: none;">
+                <a href="#" onclick="event.preventDefault(); document.getElementById('logoutForm').submit();" class="logout-link">Sair</a>
+                <form id="logoutForm" method="post" action="{% url 'logout' %}" style="display: none;">
                   {% csrf_token %}
                 </form>
               {% else %}
@@ -31,14 +32,13 @@
             </div>
           </div>
         </li>
-      </ul>
-
-
-      <div class="hamburger" onclick="toggleMobileMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
       </div>
+    </ul>
+
+    <div class="hamburger" onclick="toggleMobileMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
   </nav>
 </header>
