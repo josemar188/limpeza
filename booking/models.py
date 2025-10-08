@@ -5,6 +5,9 @@ from django.core.mail import EmailMessage
 from django.contrib.auth.models import AbstractUser
 from django.conf import settings
 from django.contrib.auth.models import User
+from django.urls import reverse
+from .forms import ContactForm
+
 
 
 
