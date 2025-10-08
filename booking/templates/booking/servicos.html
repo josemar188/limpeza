@@ -21,33 +21,44 @@
             <h2>Limpeza Residencial</h2>
             <p>Serviço completo de limpeza para sua casa, incluindo quartos, banheiros, cozinha e áreas comuns.</p>
             <img src="{% static 'booking/images/img4.4.jpeg' %}" alt="Limpeza Residencial">
+            <br><br>
+            <a href="{% url 'book_service' %}" class="agendamento__btn">Agendar</a>
         </div>
         <div class="service">
             <h2>Limpeza Comercial</h2>
             <p>Manutenção e limpeza de escritórios, lojas e outros espaços comerciais para um ambiente profissional.</p>
             <img src="{% static 'booking/images/img5.5.jpeg' %}" alt="Limpeza Escritório">
+            <br><br>
+            <a href="{% url 'book_service' %}" class="agendamento__btn">Agendar</a>
         </div>
         <div class="service">
             <h2>Limpeza Pós-Obra</h2>
             <p>Remoção de resíduos e sujeira após reformas ou construções, deixando o local pronto para uso.</p>
             <img src="{% static 'booking/images/img6.6.jpeg' %}" alt="Limpeza Pós-Obra">
+            <br><br>
+            <a href="{% url 'book_service' %}" class="agendamento__btn">Agendar</a>
         </div>
         <div class="service">
             <h2>Limpeza de Carpetes e Estofados</h2>
             <p>Serviço especializado para higienização profunda de carpetes, sofás e outros estofados.</p>
             <img src="{% static 'booking/images/img7.7.jpeg' %}" alt="Limpeza Carpete">
+            <br><br>
+            <a href="{% url 'book_service' %}" class="agendamento__btn">Agendar</a>
         </div>
         <div class="service">
             <h2>Limpeza Ecológica</h2>
             <p>Utilização de produtos sustentáveis e técnicas que minimizam o impacto ambiental.</p>
             <img src="{% static 'booking/images/img8.8.jpeg' %}" alt="Limpeza ecológica">
+            <br><br>
+            <a href="{% url 'book_service' %}" class="agendamento__btn">Agendar</a>
         </div>
         <div class="service">
             <h2>Serviços Personalizados</h2>
             <p>Atendemos necessidades específicas de limpeza conforme solicitado pelo cliente.</p>
             <img src="{% static 'booking/images/img9.9.jpeg' %}" alt="serviço personalizado">
+            <br><br>
+            <a href="{% url 'book_service' %}" class="agendamento__btn">Agendar</a>
         </div>
-        <a href="{% url 'book_service' %}" class="agendamento__btn">Agendar Agora</a>
     </div>
     {% include 'components/preco/preco.html' %}
 </body>

@@ -4,22 +4,29 @@ from django.contrib.auth.models import User
 from booking.models import Booking
 from .models import ContactMessage
 from django.utils import timezone
-
+from .models import CustomUser
 
 class BookingForm(forms.ModelForm):
     mensagem = forms.CharField(
-            label='Mensagem',
-            widget=forms.Textarea(attrs={'rows': 4}),
-            required=False
-        )
+        label='Mensagem',
+        widget=forms.Textarea(attrs={'rows': 4}),
+        required=False
+    )
+    
+    morada = forms.CharField(
+        label='Morada',
+        widget=forms.TextInput(attrs={'placeholder': 'Rua, número, andar...'}),
+        required=True
+    )
 
     class Meta:
         model = Booking
-        fields = ['service', 'date', 'time', 'mensagem']
+        fields = ['service', 'date', 'time', 'morada', 'mensagem']
         labels = {
             'service': 'Serviço',
             'date': 'Data',
             'time': 'Hora',
+            'morada': 'Morada',
             'mensagem': 'Mensagem',
         }
         widgets = {
@@ -79,4 +86,17 @@ class ContactForm(forms.ModelForm):
         }
         widgets = {
             'mensagem': forms.Textarea(attrs={'rows': 4}),
+        }
+
+
+class CustomUserForm(forms.ModelForm):
+    class Meta:
+        model = CustomUser
+        fields = ['username', 'first_name', 'last_name', 'email', 'morada']
+        widgets = {
+            'username': forms.TextInput(attrs={'class': 'form-control'}),
+            'first_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'last_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control'}),
+            'morada': forms.TextInput(attrs={'class': 'form-control'}),
         }

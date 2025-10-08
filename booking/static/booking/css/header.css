@@ -56,12 +56,12 @@
   width: 12rem;
   color: #2258c3;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .logo:hover {
   color: #fb0;
   transition: color 0.4s;
-  box-shadow: #fb0 0px 2px 0px;
 }
 
 /* === MENU LINKS === */
@@ -134,6 +134,11 @@
   border-radius: 50%;
 }
 
+.profile-icon:hover {
+  scale: 120%;
+  transition: scale 0.3s ease;
+}
+
 .profile-dropdown {
   display: none;
   position: absolute;
@@ -175,17 +180,24 @@
   transition: 0.3s;
 }
 
+li {
+  display: inline-block;
+}
 
+ul {
+  display: flex;
+}
 
 
 
 
 @media (max-width: 768px) {
   .navbar {
-    flex-direction: row; /* mantém lado a lado */
     justify-content: space-between;
     align-items: center;
-    padding: 8px 12px;
+    padding: 20px;
+    display: flex;
+    flex-wrap: nowrap;
   }
 
   .logo {

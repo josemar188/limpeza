@@ -18,6 +18,12 @@ from .forms import CustomUserCreationForm
 from django.http import HttpResponse
 from booking.forms import ContactForm
 from django.core.mail import EmailMessage
+from .forms import CustomUserForm
+from django.core.exceptions import ValidationError
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
+
 
 # Create your views here.
 class BookingViewSet(viewsets.ModelViewSet):
@@ -116,17 +122,21 @@ def register(request):
 @login_required
 def profile(request):
     return render(request, 'registration/profile.html')
+
+
 @login_required
 def edit_profile(request):
     if request.method == 'POST':
-        form = UserChangeForm(request.POST, instance=request.user)
+        form = CustomUserForm(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
             messages.success(request, 'Perfil atualizado com sucesso!')
             return redirect('profile')
     else:
-        form = UserChangeForm(instance=request.user)
+        form = CustomUserForm(instance=request.user)
     return render(request, 'registration/edit_profile.html', {'form': form})
+
+
 @login_required
 def change_password(request):
     if request.method == 'POST':
@@ -149,6 +159,18 @@ def delete_account(request):
     return render(request, 'registration/delete_account.html')
 
 
+def validate_morada(morada):
+    url = 'https://nominatim.openstreetmap.org/search'
+    params = {
+        'q': morada,
+        'format': 'json',
+        'addressdetails': 1,
+        'limit': 1
+    }
+    response = requests.get(url, params=params)
+    data = response.json()
+    if not data:
+        raise ValidationError('Morada inválida ou não encontrada.')
 
 
 

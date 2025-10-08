@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-pt">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Eliminar Conta</title>
+    <link rel="stylesheet" href="{% static 'booking/css/delete_account.css' %}" />
+    <link rel="stylesheet" href="{% static 'booking/css/footer.css' %}" />
+    <link rel="stylesheet" href="{% static 'booking/css/header.css' %}" />
+  </head>
+  <body>
+    {% include 'components/header/header.html' %}
+
+    <main>
+      <h2>Eliminar Conta</h2>
+      <p>
+        Tem certeza que deseja eliminar sua conta? Esta ação é irreversível.
+      </p>
+      <form method="post">
+        {% csrf_token %}
+        <button type="submit">Sim, eliminar</button>
+        <a href="{% url 'profile' %}">Cancelar</a>
+      </form>
+    </main>
+
+    {% include 'components/footer/footer.html' %}
+  </body>
+</html>

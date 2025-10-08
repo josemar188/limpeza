@@ -1,0 +1,8 @@
+Nome
+Cliente Web 2 
+
+ID di cliente
+1095159290763-g823aebve3dq64d4iivh7jai3cpdh7t0.apps.googleusercontent.com
+
+Chave secreta do cliente 
+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

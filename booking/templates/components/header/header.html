@@ -3,37 +3,62 @@
 <header class="site-header">
   <nav class="navbar">
     <div class="navbar-left">
-      <h2 class="logo">TACE-Cleaning</h2>
+      <h2 class="logo"><a href="{% url 'home' %}">TACE-Cleaning</a></h2>
     </div>
-    
-    <ul class="menu" id="mobileMenu">
-      <div class="navbar-center">
+
+
+    <div class="navbar-center" id="mobileMenu">
+      <ul>
         <li class="item"><a href="{% url 'home' %}">Home</a></li>
         <li class="item"><a href="{% url 'servicos' %}">Serviços</a></li>
-        <li class="item"><a href="{% url 'book_service' %}">Agendar Serviços</a></li>
-      </div>
+        <li class="item">
+          <a href="{% url 'book_service' %}">Agendar Serviços</a>
+        </li>
+      </ul>
+    </div>
 
-      <div class="navbar-right">
-        <li><a href="{% url 'contact' %}" class="agendamento__btn">Contacte-nos</a></li>
+
+    <div class="navbar-right" id="mobileMenu">
+      <ul>
+        <li>
+          <a href="{% url 'contact' %}" class="agendamento__btn"
+            >Contacte-nos</a
+          >
+        </li>
         <li>
           <div class="profile-menu">
-            <img src="{% static 'booking/images/user.png' %}" alt="Perfil" class="profile-icon" onclick="toggleProfileMenu()"/>
+            <img
+              src="{% static 'booking/images/user.png' %}"
+              alt="Perfil"
+              class="profile-icon"
+              onclick="toggleProfileMenu()"
+            />
             <div class="profile-dropdown" id="profileDropdown">
               {% if request.user.is_authenticated %}
-                <a href="{% url 'profile' %}">Perfil</a>
-                <a href="#" onclick="event.preventDefault(); document.getElementById('logoutForm').submit();" class="logout-link">Sair</a>
-                <form id="logoutForm" method="post" action="{% url 'logout' %}" style="display: none;">
-                  {% csrf_token %}
-                </form>
+              <a href="{% url 'profile' %}">Perfil</a>
+              <a
+                href="#"
+                onclick="event.preventDefault(); document.getElementById('logoutForm').submit();"
+                class="logout-link"
+                >Sair</a
+              >
+              <form
+                id="logoutForm"
+                method="post"
+                action="{% url 'logout' %}"
+                style="display: none"
+              >
+                {% csrf_token %}
+              </form>
               {% else %}
-                <a href="{% url 'login' %}">Entrar</a>
-                <a href="{% url 'signup' %}">Criar Conta</a>
+              <a href="{% url 'login' %}">Entrar</a>
+              <a href="{% url 'signup' %}">Criar Conta</a>
               {% endif %}
             </div>
           </div>
         </li>
-      </div>
-    </ul>
+      </ul>
+    </div>
 
     <div class="hamburger" onclick="toggleMobileMenu()">
       <span></span>
@@ -42,27 +67,6 @@
     </div>
   </nav>
 </header>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -82,15 +86,15 @@
 
   // Esconde/mostra navbar com base na direção do scroll
   let lastScrollTop = 0;
-  const navbar = document.querySelector('.navbar');
+  const navbar = document.querySelector(".navbar");
 
-  window.addEventListener('scroll', function () {
+  window.addEventListener("scroll", function () {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
     if (scrollTop < lastScrollTop) {
-      navbar.classList.remove('hidden'); // rolando para cima
+      navbar.classList.remove("hidden"); // rolando para cima
     } else {
-      navbar.classList.add('hidden'); // rolando para baixo
+      navbar.classList.add("hidden"); // rolando para baixo
     }
 
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
@@ -118,7 +122,3 @@
     }
   });
 </script>
-
-
-
-

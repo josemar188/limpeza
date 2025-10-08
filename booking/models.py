@@ -1,8 +1,10 @@
 from django.db import models
-from django.contrib.auth.models import User
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 from django.core.mail import EmailMessage
+from django.contrib.auth.models import AbstractUser
+from django.conf import settings
+from django.contrib.auth.models import User
 
 
 
@@ -27,13 +29,14 @@ class Booking(models.Model):
         ('CONFIRMADO', 'Confirmado'),
         ('CANCELADO', 'Cancelado'),
     ]
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='bookings_as_user')
+    collaborator = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, blank=True, related_name='bookings_as_collaborator')
     service = models.ForeignKey(Service, on_delete=models.CASCADE)
     date = models.DateField()
     time = models.TimeField()
+    morada = models.CharField(max_length=255, blank=True)
     mensagem = models.TextField(blank=True, null=True)
     status = models.CharField(max_length=10, choices=SERVIVE_STATUS, default='PENDENTE')
-    collaborator = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name='collaborator_bookings')
     class Meta:
         verbose_name = 'Agendamento'
         verbose_name_plural = 'Agendamentos'
@@ -90,3 +93,7 @@ class ContactMessage(models.Model):
 
     def __str__(self):
         return f"{self.nome} ({self.email})"
+    
+
+class CustomUser(AbstractUser):
+    morada = models.CharField(max_length=255, blank=True)

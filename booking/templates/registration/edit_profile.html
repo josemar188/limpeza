@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-pt">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Editar Perfil</title>
+    <link rel="stylesheet" href="{% static 'booking/css/edit_profile.css' %}" />
+    <link rel="stylesheet" href="{% static 'booking/css/footer.css' %}" />
+    <link rel="stylesheet" href="{% static 'booking/css/header.css' %}" />
+</head>
+
+<body>
+    {% include 'components/header/header.html' %}
+
+    <main>
+        <h2>Editar Perfil</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ user_form.as_p }}
+            {{ profile_form.as_p }}
+            <button type="submit">Salvar Alterações</button>
+        </form>
+
+        {% include 'components/footer/footer.html' %}
+</body>
+
+</html>
