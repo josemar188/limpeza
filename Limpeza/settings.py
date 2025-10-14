@@ -96,10 +96,15 @@ WSGI_APPLICATION = 'Limpeza.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'limpeza_db',
+        'USER': 'limpeza_user',
+        'PASSWORD': 'tua_senha_segura',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
+
 
 
 # Password validation
@@ -152,6 +157,6 @@ EMAIL_HOST_USER = 'jusng188@gmail.com'
 EMAIL_HOST_PASSWORD = 'loeg tegd hdii twld'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
-AUTH_USER_MODEL = 'booking.CustomUser'
+#AUTH_USER_MODEL = 'booking.CustomUser'
 
 SITE_ID = 2

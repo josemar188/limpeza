@@ -1,6 +1,8 @@
 from django.contrib import admin
 from .models import Booking, Service
+from .models import CustomUser
 
+admin.site.register(CustomUser)
 # Register your models here.
 @admin.register(Service)
 class ServiceAdmin(admin.ModelAdmin):

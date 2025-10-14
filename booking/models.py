@@ -2,13 +2,10 @@ from django.db import models
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 from django.core.mail import EmailMessage
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser,  Group, Permission 
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.urls import reverse
-from .forms import ContactForm
-
-
 
 
 # Create your models here.
@@ -99,4 +96,18 @@ class ContactMessage(models.Model):
     
 
 class CustomUser(AbstractUser):
-    morada = models.CharField(max_length=255, blank=True)
+    morada = models.CharField(max_length=255, blank=True, null=True)
+    groups = models.ManyToManyField(
+        Group,
+        related_name='customuser_set',
+        blank=True,
+        help_text='The groups this user belongs to.',
+        verbose_name='groups'
+    )
+    user_permissions = models.ManyToManyField(
+        Permission,
+        related_name='customuser_permissions_set',
+        blank=True,
+        help_text='Specific permissions for this user.',
+        verbose_name='user permissions'
+    )
